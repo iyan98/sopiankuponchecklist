@@ -38,14 +38,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   
     function displayCoupons() {
-        const coupons = loadCoupons();
-        coupons.forEach(coupon => {
-          const li = document.createElement('li');
-          li.textContent = `Coupon ID: ${coupon.id} - Used: ${coupon.used ? 'Yes' : 'No'}`;
-          li.classList.add(coupon.used ? 'used' : 'unused'); // Menambahkan kelas sesuai status
-          couponList.appendChild(li);
-        });
+  const coupons = loadCoupons();
+  const couponList = document.getElementById('coupon-list');
+  
+  coupons.forEach(coupon => {
+    const li = document.createElement('li');
+    li.textContent = `Coupon ID: ${coupon.id} - Used: ${coupon.used ? 'Yes' : 'No'}`;
+    
+    // Memeriksa status kupon dan menambahkan kelas yang sesuai
+    if (coupon.used) {
+      li.classList.add('used');
+    } else {
+      li.classList.add('unused');
     }
+
+    couponList.appendChild(li);
+  });
+}
   
     function checkCoupon() {
       const urlParams = new URLSearchParams(window.location.search);
