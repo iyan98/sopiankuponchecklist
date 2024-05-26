@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const couponList = document.getElementById('coupon-list');
     const couponStatus = document.getElementById('coupon-status');
+    const returnButton = document.getElementById('return-button');
   
     const coupons = [
       { id: '01', used: false },
@@ -78,5 +79,13 @@ document.addEventListener('DOMContentLoaded', function() {
           location.reload(); // Refresh the page to see the reset coupons
         });
       }
+
+    function redirectToIndex() {
+        window.location.href = 'index.html'; // Redirect to index.html without resetting coupons
+    }
+
+    if (returnButton) {
+        returnButton.addEventListener('click', redirectToIndex);
+    }
 
   });
