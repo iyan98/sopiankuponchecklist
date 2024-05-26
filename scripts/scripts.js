@@ -72,6 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
       checkCoupon();
     }
 
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const resetButton = document.getElementById('reset-button');
+
     if (resetButton) {
         resetButton.addEventListener('click', function() {
           localStorage.removeItem('coupons');
